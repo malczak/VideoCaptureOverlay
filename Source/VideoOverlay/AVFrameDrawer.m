@@ -40,10 +40,11 @@
         [self setFrameProcessingCompletionBlock:^(GPUImageOutput* output, CMTime time) {
             __strong AVFrameDrawer *strongSelf = weakSelf;
             if(strongSelf){
-                BOOL contextModified = [strongSelf processFrameWithOutput:output atTime:time];
+                BOOL contextModified = [strongSelf updateContextAtTime:time];
                 
                 if(strongSelf.contextUpdateBlock) {
-                    contextModified = contextModified || strongSelf.contextUpdateBlock([strongSelf outputContext], [strongSelf outputImageSize], time);
+                    BOOL contextModifiedInBlock = strongSelf.contextUpdateBlock([strongSelf outputContext], [strongSelf outputImageSize], time);
+                    contextModified = contextModified || contextInitializeBlock;
                 }
                 
                 if(contextModified) {
@@ -83,6 +84,8 @@
     
     NSAssert(context != NULL, @"Failed to create bitmap context");
     
+    [self initializeContext];
+    
     if(contextInitializeBlock) {
         contextInitializeBlock([self outputContext], [self outputImageSize]);
     }
@@ -95,6 +98,11 @@
     outputFramebuffer = [[GPUImageContext sharedFramebufferCache] fetchFramebufferForSize:uploadedImageSize textureOptions:self.outputTextureOptions onlyTexture:YES];
 
     [outputFramebuffer disableReferenceCounting];
+}
+
+-(void) initializeContext
+{
+    
 }
 
 - (void)uploadBytes:(GLubyte *)bytesToUpload;
@@ -166,7 +174,7 @@
     [outputFramebuffer unlock];
 }
 
--(BOOL) processFrameWithOutput:(GPUImageOutput*) output atTime:(CMTime) time
+-(BOOL) updateContextAtTime:(CMTime) time
 {    
     return NO;
 }
