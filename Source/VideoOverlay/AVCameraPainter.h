@@ -71,5 +71,8 @@
  */
 - (void)stopCameraRecordingWithCompetionHandler:(void (^)(void))handler;
 
+/** Cancel current recording
+ */
+- (void)cancelCameraRecording;
 
 @end

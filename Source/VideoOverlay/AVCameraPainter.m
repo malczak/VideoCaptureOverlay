@@ -55,6 +55,7 @@
     
     _camera.horizontallyMirrorFrontFacingCamera = NO;
     _camera.horizontallyMirrorRearFacingCamera = NO;
+//    _camera.inputCamera.exposurePointOfInterest
 }
 
 #pragma mark -
@@ -129,8 +130,6 @@
 #pragma mark -
 #pragma mark Manage the camera recording
 
-/** Start camera recording
- */
 - (void)startCameraRecordingWithURL:(NSURL*) url size:(CGSize) size;
 {
     if(!_isCapturing) {
@@ -143,13 +142,24 @@
     }
 }
 
-/** Stop camera recording
- */
 - (void)stopCameraRecordingWithCompetionHandler:(void (^)(void))handler
 {
     if(_isRecording) {
         [self freeCameraRecordingWithCompetionHandler:handler];
         _isRecording = NO;
+    }
+}
+
+- (void)cancelCameraRecording
+{
+    if(_isRecording) {
+        if (dispatch_semaphore_wait(self.dataUpdateSemaphore, DISPATCH_TIME_NOW) != 0)
+        {
+            return;
+        }
+        
+        [_writer cancelRecording];
+        [self destroyCameraWriter];
     }
 }
 

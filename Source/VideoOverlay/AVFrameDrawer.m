@@ -44,7 +44,7 @@
                 
                 if(strongSelf.contextUpdateBlock) {
                     BOOL contextModifiedInBlock = strongSelf.contextUpdateBlock([strongSelf outputContext], [strongSelf outputImageSize], time);
-                    contextModified = contextModified || contextInitializeBlock;
+                    contextModified = contextModified || contextModifiedInBlock;
                 }
                 
                 if(contextModified) {
