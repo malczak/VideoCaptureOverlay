@@ -95,7 +95,9 @@
 {
     [GPUImageContext useImageProcessingContext];
     
-    outputFramebuffer = [[GPUImageContext sharedFramebufferCache] fetchFramebufferForSize:uploadedImageSize textureOptions:self.outputTextureOptions onlyTexture:YES];
+    outputFramebuffer = [[GPUImageContext sharedFramebufferCache] fetchFramebufferForSize:uploadedImageSize
+                                                                           textureOptions:self.outputTextureOptions
+                                                                              onlyTexture:YES];
 
     [outputFramebuffer disableReferenceCounting];
 }

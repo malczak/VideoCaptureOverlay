@@ -186,25 +186,33 @@
             
             CMTime currentTime = processingTime;
 
-            if(CMTIME_IS_INDEFINITE(startTime)) {
-                startTime = processingTime;
+            // set startTime frame time on first call :S
+            if(CMTIME_IS_INDEFINITE(startTime))
+            {
+                startTime = processingTime; // @todo startTime is catupring 'self'
             }
             
             __strong AVCameraPainter *strongSelf = weakSelf;
-            if(strongSelf){
-                if(strongSelf.originalFrameProcessingCompletionBlock) {
+            if(strongSelf)
+            {
+                // perform original composition using real composition time
+                if(strongSelf.originalFrameProcessingCompletionBlock)
+                {
                     strongSelf.originalFrameProcessingCompletionBlock(output, processingTime);
                 }
                 
+                // use recording time for frame drawer
                 currentTime = [strongSelf recordTime];
-                if(CMTIME_IS_INDEFINITE(currentTime)) {
+                if(CMTIME_IS_INDEFINITE(currentTime))
+                {
                     currentTime = strongSelf.shouldUseCaptureTime ? [strongSelf captureTime:processingTime] : kCMTimeZero;
                 }
             }
             
             __strong AVFrameDrawer *strongOverlay = weakOverlay;
-            if(strongOverlay) {
-                [strongOverlay frameProcessingCompletionBlock](output, currentTime);
+            if(strongOverlay)
+            {
+                [strongOverlay frameProcessingCompletionBlock](output, currentTime); // @todo pass time etc :P
             }
 
         };
@@ -213,7 +221,8 @@
         [_composer setFrameProcessingCompletionBlock:frameProcessingCompletionBlock];
     }
     
-    if(self.shouldCaptureAudio) {
+    if(self.shouldCaptureAudio)
+    {
         [_camera addAudioInputsAndOutputs];
     }
 }
@@ -276,11 +285,13 @@
 
 #pragma mark - Handle capture / recording
 
--(CMTime) captureTime:(CMTime) processingTime {
+-(CMTime) captureTime:(CMTime) processingTime
+{
     return CMTimeSubtract(processingTime, startTime);
 }
 
--(CMTime) recordTime {
+-(CMTime) recordTime
+{
     return (_isRecording) ? _writer.duration : kCMTimeIndefinite;
 }
 
