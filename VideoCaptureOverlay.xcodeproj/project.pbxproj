@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32EBFDF61F93E81D0077EC2B /* libGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32EBFDF91F93E81D0077EC2B /* libGPUImage.a */; };
+		32EBFDF71F93E81D0077EC2B /* libPods-VideoCaptureOverlay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32EBFDFA1F93E81D0077EC2B /* libPods-VideoCaptureOverlay.a */; };
+		32EBFDF81F93E81D0077EC2B /* libSVProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32EBFDFB1F93E81D0077EC2B /* libSVProgressHUD.a */; };
+		32EBFE011F93F5B20077EC2B /* WRRecordButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EBFE001F93F5B20077EC2B /* WRRecordButton.m */; };
 		32F1261C1A0978B400077C83 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F1261B1A0978B400077C83 /* main.m */; };
 		32F1261F1A0978B400077C83 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F1261E1A0978B400077C83 /* AppDelegate.m */; };
 		32F126221A0978B400077C83 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F126211A0978B400077C83 /* ViewController.m */; };
@@ -16,11 +20,17 @@
 		32F126441A097B4C00077C83 /* AVCameraPainter.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F126411A097B4C00077C83 /* AVCameraPainter.m */; };
 		32F126451A097B4C00077C83 /* AVFrameDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F126431A097B4C00077C83 /* AVFrameDrawer.m */; };
 		32F126471A097D2A00077C83 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32F126461A097D2A00077C83 /* AssetsLibrary.framework */; };
-		6410F8252D421EF6DF45E09F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 61738F26548B1EAA5C267A7E /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		083AE6BA7A5EF6B066903166 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		123F3F6B06EA317C60B8FCEE /* Pods-VideoCaptureOverlay.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoCaptureOverlay.release.xcconfig"; path = "Pods/Target Support Files/Pods-VideoCaptureOverlay/Pods-VideoCaptureOverlay.release.xcconfig"; sourceTree = "<group>"; };
+		176C67F582AFC406D02EF49F /* libPods-VideoCaptureOverlay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VideoCaptureOverlay.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		32EBFDF91F93E81D0077EC2B /* libGPUImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libGPUImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		32EBFDFA1F93E81D0077EC2B /* libPods-VideoCaptureOverlay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libPods-VideoCaptureOverlay.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		32EBFDFB1F93E81D0077EC2B /* libSVProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSVProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		32EBFDFF1F93F5B10077EC2B /* WRRecordButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WRRecordButton.h; path = Source/WRRecordButton.h; sourceTree = SOURCE_ROOT; };
+		32EBFE001F93F5B20077EC2B /* WRRecordButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = WRRecordButton.m; path = Source/WRRecordButton.m; sourceTree = SOURCE_ROOT; };
 		32F126161A0978B400077C83 /* VideoCaptureOverlay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoCaptureOverlay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32F1261A1A0978B400077C83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32F1261B1A0978B400077C83 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -37,6 +47,7 @@
 		32F126431A097B4C00077C83 /* AVFrameDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVFrameDrawer.m; sourceTree = "<group>"; };
 		32F126461A097D2A00077C83 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		61738F26548B1EAA5C267A7E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8272F4067D2CA25A73B665E3 /* Pods-VideoCaptureOverlay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VideoCaptureOverlay.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VideoCaptureOverlay/Pods-VideoCaptureOverlay.debug.xcconfig"; sourceTree = "<group>"; };
 		8FD53ED1F74330E66E5069C8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -45,8 +56,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32EBFDF61F93E81D0077EC2B /* libGPUImage.a in Frameworks */,
+				32EBFDF71F93E81D0077EC2B /* libPods-VideoCaptureOverlay.a in Frameworks */,
+				32EBFDF81F93E81D0077EC2B /* libSVProgressHUD.a in Frameworks */,
 				32F126471A097D2A00077C83 /* AssetsLibrary.framework in Frameworks */,
-				6410F8252D421EF6DF45E09F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,8 +69,12 @@
 		12F4B34542E28C7F2D0CC37A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				32EBFDF91F93E81D0077EC2B /* libGPUImage.a */,
+				32EBFDFA1F93E81D0077EC2B /* libPods-VideoCaptureOverlay.a */,
+				32EBFDFB1F93E81D0077EC2B /* libSVProgressHUD.a */,
 				32F126461A097D2A00077C83 /* AssetsLibrary.framework */,
 				61738F26548B1EAA5C267A7E /* libPods.a */,
+				176C67F582AFC406D02EF49F /* libPods-VideoCaptureOverlay.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -67,6 +84,8 @@
 			children = (
 				083AE6BA7A5EF6B066903166 /* Pods.debug.xcconfig */,
 				8FD53ED1F74330E66E5069C8 /* Pods.release.xcconfig */,
+				8272F4067D2CA25A73B665E3 /* Pods-VideoCaptureOverlay.debug.xcconfig */,
+				123F3F6B06EA317C60B8FCEE /* Pods-VideoCaptureOverlay.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -97,6 +116,8 @@
 				32F1261E1A0978B400077C83 /* AppDelegate.m */,
 				32F126201A0978B400077C83 /* ViewController.h */,
 				32F126211A0978B400077C83 /* ViewController.m */,
+				32EBFDFF1F93F5B10077EC2B /* WRRecordButton.h */,
+				32EBFE001F93F5B20077EC2B /* WRRecordButton.m */,
 				32F126231A0978B400077C83 /* Main.storyboard */,
 				32F126261A0978B400077C83 /* Images.xcassets */,
 				32F126281A0978B400077C83 /* LaunchScreen.xib */,
@@ -133,11 +154,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 32F126391A0978B400077C83 /* Build configuration list for PBXNativeTarget "VideoCaptureOverlay" */;
 			buildPhases = (
-				182A6118F93E9EBE07ED18C3 /* Check Pods Manifest.lock */,
+				182A6118F93E9EBE07ED18C3 /* [CP] Check Pods Manifest.lock */,
 				32F126121A0978B400077C83 /* Sources */,
 				32F126131A0978B400077C83 /* Frameworks */,
 				32F126141A0978B400077C83 /* Resources */,
-				0AC7A2460D20CFE340770E59 /* Copy Pods Resources */,
+				0AC7A2460D20CFE340770E59 /* [CP] Copy Pods Resources */,
+				57E4F80774B6A6DE9DA94795 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -159,6 +181,7 @@
 				TargetAttributes = {
 					32F126151A0978B400077C83 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = F7H9NZFKGE;
 					};
 				};
 			};
@@ -194,34 +217,60 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0AC7A2460D20CFE340770E59 /* Copy Pods Resources */ = {
+		0AC7A2460D20CFE340770E59 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-VideoCaptureOverlay/Pods-VideoCaptureOverlay-resources.sh",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_amatorka.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_miss_etikate.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_1.png",
+				"${PODS_ROOT}/GPUImage/framework/Resources/lookup_soft_elegance_2.png",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VideoCaptureOverlay/Pods-VideoCaptureOverlay-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		182A6118F93E9EBE07ED18C3 /* Check Pods Manifest.lock */ = {
+		182A6118F93E9EBE07ED18C3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VideoCaptureOverlay-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57E4F80774B6A6DE9DA94795 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VideoCaptureOverlay/Pods-VideoCaptureOverlay-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -236,6 +285,7 @@
 				32F1261C1A0978B400077C83 /* main.m in Sources */,
 				32F126441A097B4C00077C83 /* AVCameraPainter.m in Sources */,
 				32F126451A097B4C00077C83 /* AVFrameDrawer.m in Sources */,
+				32EBFE011F93F5B20077EC2B /* WRRecordButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,9 +389,10 @@
 		};
 		32F1263A1A0978B400077C83 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 083AE6BA7A5EF6B066903166 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 8272F4067D2CA25A73B665E3 /* Pods-VideoCaptureOverlay.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = F7H9NZFKGE;
 				INFOPLIST_FILE = VideoCaptureOverlay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -350,9 +401,10 @@
 		};
 		32F1263B1A0978B400077C83 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8FD53ED1F74330E66E5069C8 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 123F3F6B06EA317C60B8FCEE /* Pods-VideoCaptureOverlay.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = F7H9NZFKGE;
 				INFOPLIST_FILE = VideoCaptureOverlay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

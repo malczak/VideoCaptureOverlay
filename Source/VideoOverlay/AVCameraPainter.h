@@ -10,11 +10,12 @@
 #import "AVFrameDrawer.h"
 #import "GPUImage.h"
 
-@interface AVCameraPainter : NSObject {
+@interface AVCameraPainter : NSObject <GPUImageMovieWriterDelegate> {
 }
 
 @property (nonatomic, assign) BOOL shouldUseCaptureTime;
 @property (nonatomic, assign) BOOL shouldCaptureAudio;
+@property (nonatomic, assign) BOOL shouldRecordOverlay;
 
 @property (nonatomic, readonly) BOOL isCapturing;
 @property (nonatomic, readonly) BOOL isRecording;
@@ -65,14 +66,18 @@
 
 /** Start camera recording
  */
-- (void)startCameraRecordingWithURL:(NSURL*) url size:(CGSize) size;
+- (void)startCameraRecordingWithURL:(NSURL*) url size:(CGSize) size metaData:(NSArray<AVMetadataItem*>*) metdata;
 
 /** Stop camera recording
  */
-- (void)stopCameraRecordingWithCompetionHandler:(void (^)(void))handler;
+- (void)stopCameraRecordingWithCompetionHandler:(void (^)(AVCameraPainter*))handler;
 
 /** Cancel current recording
  */
 - (void)cancelCameraRecording;
+
+/** Capture a still image of recorded video
+ */
+- (void)caputreStillImage;
 
 @end

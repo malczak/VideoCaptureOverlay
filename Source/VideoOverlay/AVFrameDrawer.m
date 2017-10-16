@@ -49,7 +49,8 @@
                 
                 if(contextModified) {
                     [strongSelf updateContext];
-                    //                    [strongSelf processData]; // dont you will notify target and cause a update cycle ! this should be used if painter is on other target than camera
+                    // dont you will notify target and cause a update cycle ! this should be used if painter is on other target than camera
+                    // [strongSelf processData];
                 }
             }
         }];

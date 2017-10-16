@@ -11,6 +11,7 @@
 #import "ViewController.h"
 #import "AVFrameDrawer.h"
 #import "AVCameraPainter.h"
+#import "WRRecordButton.h"
 
 @interface ViewController () {
     GPUImageView *cameraPreview;
@@ -20,7 +21,7 @@
     NSURL *outUrl;
 }
 
-@property (nonatomic, weak) IBOutlet UIButton *recordButton;
+@property (nonatomic, strong) WRRecordButton *recordButton;
 
 @end
 
@@ -42,6 +43,15 @@ static NSUInteger videoDurationInSec = 240; // 4min+
     // init capture session and pass it to preview
     [self initCameraCapture];
     
+    self.recordButton = [[WRRecordButton alloc] initWithFrame:CGRectZero];
+    self.recordButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview: self.recordButton];
+    [self.view addConstraints:@[
+                                [NSLayoutConstraint constraintWithItem:self.recordButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:64.0f],
+                                [NSLayoutConstraint constraintWithItem:self.recordButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:64.0f],
+                                [NSLayoutConstraint constraintWithItem:self.recordButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0],
+                                [NSLayoutConstraint constraintWithItem:self.recordButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-16.0f]
+                                ]];
     [self.recordButton addTarget:self action:@selector(recordButtonHandler:) forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -84,8 +94,10 @@ static NSUInteger videoDurationInSec = 240; // 4min+
 -(void) initCameraCapture
 {
     // create video painter
-    painter = [[AVCameraPainter alloc] initWithSessionPreset:AVCaptureSessionPreset1280x720 cameraPosition:AVCaptureDevicePositionBack];
+    painter = [[AVCameraPainter alloc] initWithSessionPreset:AVCaptureSessionPreset1280x720
+                                              cameraPosition:AVCaptureDevicePositionBack];
     painter.shouldCaptureAudio = NO;
+    painter.shouldRecordOverlay = YES;
     painter.camera.outputImageOrientation = UIInterfaceOrientationMaskLandscapeRight;
     
     
@@ -153,8 +165,15 @@ static NSUInteger videoDurationInSec = 240; // 4min+
     [fm removeItemAtPath:path error:nil];
     
     NSLog(@"Recording ...");
-    
-    [painter startCameraRecordingWithURL:outUrl size:CGSizeMake(targetWidth, targetHeight)];
+
+    NSArray<AVMetadataItem*> *metadata = @[
+                                           [self createMetadata:AVMetadataCommonKeyTitle withValue:@"Test wideo"],
+                                           [self createMetadata:AVMetadataCommonKeyCreator withValue:@"The Pirate Cat"],
+                                           [self createMetadata:AVMetadataCommonKeyDescription withValue:@"Test video with overlay"]
+                                           ];
+    [painter startCameraRecordingWithURL:outUrl
+                                    size:CGSizeMake(targetWidth, targetHeight)
+                                metaData:metadata];
     
     __weak ViewController *weakSelf = self;
 
@@ -164,8 +183,6 @@ static NSUInteger videoDurationInSec = 240; // 4min+
     dispatch_after(autoStopTime, dispatch_get_main_queue(), ^{
         [weakSelf stopCameraCapture];
     });
- 
-    [self.recordButton setTitle:@"STOP" forState:UIControlStateNormal];
 }
 
 -(void) stopCameraCapture
@@ -176,15 +193,11 @@ static NSUInteger videoDurationInSec = 240; // 4min+
     
     NSURL *movieUrl = outUrl;
     
-    __weak ViewController *weakSelf = self;
-    
-    [painter stopCameraRecordingWithCompetionHandler:^(){
+    [painter stopCameraRecordingWithCompetionHandler:^(AVCameraPainter* painter){
         
         dispatch_async(dispatch_get_main_queue(), ^(){
-            NSLog(@"Recorded :/");
+            NSLog(@"Recorded :]");
             [SVProgressHUD showWithStatus:@"Exporting..."];
-            
-            [weakSelf.recordButton setTitle:@"Record" forState:UIControlStateNormal];
             
             ALAssetsLibrary *assetsLibrary = [[ALAssetsLibrary alloc] init];
             if ([assetsLibrary videoAtPathIsCompatibleWithSavedPhotosAlbum:movieUrl]) {
@@ -198,6 +211,18 @@ static NSUInteger videoDurationInSec = 240; // 4min+
             }
         });
     }];
+}
+
+#pragma mark -
+#pragma mark - Utils
+
+-(AVMutableMetadataItem*) createMetadata:(NSString*) key withValue:(NSString*) value
+{
+    AVMutableMetadataItem *mutableItem = [AVMutableMetadataItem metadataItem];
+    mutableItem.keySpace = AVMetadataKeySpaceCommon;
+    mutableItem.key = key;
+    mutableItem.value = value;
+    return mutableItem;
 }
 
 #pragma mark -
