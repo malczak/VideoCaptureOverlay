@@ -1,9 +1,6 @@
 //
-//  AVCameraPainter.h
-//  AVSimpleEditoriOS
-//
-//  Created by malczak on 04/11/14.
-//
+//  AVCameraPainter
+//  https://github.com/malczak/VideoCaptureOverlay
 //
 
 #import <Foundation/Foundation.h>

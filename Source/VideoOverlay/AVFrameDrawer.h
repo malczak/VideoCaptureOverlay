@@ -1,9 +1,6 @@
 //
-//  AVFrameDrawer.h
-//  AVSimpleEditoriOS
-//
-//  Created by malczak on 03/11/14.
-//
+//  AVFrameDrawer
+//  https://github.com/malczak/VideoCaptureOverlay
 //
 
 #import "GPUImage.h"
